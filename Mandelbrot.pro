@@ -12,12 +12,15 @@ SOURCES += \
     complex.cpp \
     main.cpp \
     mainwindow.cpp \
+    mandelbrotrenderer.cpp \
     mandelbrotview.cpp
 
 HEADERS += \
     complex.h \
     mainwindow.h \
-    mandelbrotview.h
+    mandelbrotrenderer.h \
+    mandelbrotview.h \
+    stdpch.h
 
 FORMS += \
     mainwindow.ui

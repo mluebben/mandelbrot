@@ -17,8 +17,17 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void on_actionExport_triggered();
+    void on_actionExit_triggered();
+    void on_actionZoomIn_triggered();
+    void on_actionZoomOut_triggered();
+    void on_actionReset_triggered();
+    void on_actionAbout_triggered();
+    void on_actionAboutQt_triggered();
 
-
+private:
+    void initMandelbrotView();
 
 private:
     Ui::MainWindow *ui;

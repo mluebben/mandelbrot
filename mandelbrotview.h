@@ -15,13 +15,24 @@ protected:
 
 
 
-    QImage generateImage(QSize size);
+
+
+
+
+
+    QImage render(QSize size);
 
 
 signals:
 
 
 private:
+    int _limit;
+    float _xMin;
+    float _xMax;
+    float _yMin;
+    float _yMax;
+
     QImage _image;
 };
 
