@@ -11,12 +11,17 @@ public:
         // Nothing to do
     }
 
+    Complex(const Complex& other)
+        : r(other.r), i(other.i)
+    {
+        // Nothing to do
+    }
+
     void operator+=(const Complex& other)
     {
         r += other.r;
         i += other.i;
     }
-
 
     void operator*=(const Complex& other)
     {
@@ -42,15 +47,11 @@ public:
         return absolut(r) + absolut(i);
     }
 
-
-
-
-
     float r;
     float i;
 };
 
-
-
+Complex operator+(const Complex& a, const Complex& b);
+Complex operator*(const Complex& a, const Complex& b);
 
 #endif // COMPLEX_H
