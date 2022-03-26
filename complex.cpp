@@ -1,3 +1,4 @@
+#include "stdpch.h"
 #include "complex.h"
 
 float absolut(float a)
@@ -15,4 +16,9 @@ Complex operator*(const Complex& a, const Complex& b) {
     Complex result(a);
     result *= b;
     return result;
+}
+
+float Complex::length() const
+{
+    return qSqrt(r * r + i * i);
 }

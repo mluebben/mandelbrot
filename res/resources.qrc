@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/appicon16.png</file>
+        <file>images/appicon32.png</file>
+        <file>images/application-exit.svgz</file>
+        <file>images/help-about.svgz</file>
+        <file>images/help-aboutqt.png</file>
+        <file>images/filesave.png</file>
+        <file>images/zoom_in.svgz</file>
+        <file>images/zoom_original.svgz</file>
+        <file>images/zoom_out.svgz</file>
+    </qresource>
+</RCC>

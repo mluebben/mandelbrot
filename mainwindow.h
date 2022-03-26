@@ -8,6 +8,8 @@ namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 class MandelbrotView;
+class QLabel;
+class Region;
 
 class MainWindow : public QMainWindow
 {
@@ -26,13 +28,22 @@ public slots:
     void on_actionAbout_triggered();
     void on_actionAboutQt_triggered();
 
+    void on_applyPushButton_clicked();
+
+    void on_mandelbrotView_pointedAt(float c_r, float c_i);
+    void on_mandelbrotView_regionChanged(const Region& region);
+
 private:
     void initMandelbrotView();
+    void initStatusBar();
 
 private:
     Ui::MainWindow *ui;
 
     MandelbrotView *_mandelbrotView;
 
+    QLabel *_cLabel;
+    QLabel *_cminLabel;
+    QLabel *_cmaxLabel;
 };
 #endif // MAINWINDOW_H

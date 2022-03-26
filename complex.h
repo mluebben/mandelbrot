@@ -47,6 +47,8 @@ public:
         return absolut(r) + absolut(i);
     }
 
+    float length() const;
+
     float r;
     float i;
 };

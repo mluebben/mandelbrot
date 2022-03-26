@@ -5,5 +5,6 @@
 #include <QtDebug>
 #include <QtGui>
 #include <QtWidgets>
+#include <QtMath>
 
 #endif // STDPCH_H

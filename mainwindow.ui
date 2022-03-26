@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Mandelbrot Set Viewer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="res/resources.qrc">
+    <normaloff>:/images/appicon16.png</normaloff>:/images/appicon16.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
@@ -20,7 +24,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuDatei">
@@ -79,6 +83,9 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="minimum">
+      <double>-99.989999999999995</double>
+     </property>
     </widget>
     <widget class="QLabel" name="xMaxLabel">
      <property name="geometry">
@@ -101,6 +108,9 @@
        <width>62</width>
        <height>22</height>
       </rect>
+     </property>
+     <property name="minimum">
+      <double>-99.989999999999995</double>
      </property>
     </widget>
     <widget class="QLabel" name="yMinLabel">
@@ -125,6 +135,9 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="minimum">
+      <double>-99.989999999999995</double>
+     </property>
     </widget>
     <widget class="QLabel" name="yMaxLabel">
      <property name="geometry">
@@ -148,6 +161,22 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="minimum">
+      <double>-99.989999999999995</double>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="applyPushButton">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>170</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Apply</string>
+     </property>
     </widget>
    </widget>
   </widget>
@@ -162,23 +191,43 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionExport"/>
+   <addaction name="separator"/>
+   <addaction name="actionZoomIn"/>
+   <addaction name="actionZoomOut"/>
+   <addaction name="actionReset"/>
   </widget>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="res/resources.qrc">
+     <normaloff>:/images/application-exit.svgz</normaloff>:/images/application-exit.svgz</iconset>
+   </property>
    <property name="text">
     <string>Beenden</string>
    </property>
   </action>
   <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="res/resources.qrc">
+     <normaloff>:/images/help-about.svgz</normaloff>:/images/help-about.svgz</iconset>
+   </property>
    <property name="text">
     <string>About ...</string>
    </property>
   </action>
   <action name="actionAboutQt">
+   <property name="icon">
+    <iconset resource="res/resources.qrc">
+     <normaloff>:/images/help-aboutqt.png</normaloff>:/images/help-aboutqt.png</iconset>
+   </property>
    <property name="text">
     <string>About Qt ...</string>
    </property>
   </action>
   <action name="actionZoomIn">
+   <property name="icon">
+    <iconset resource="res/resources.qrc">
+     <normaloff>:/images/zoom_in.svgz</normaloff>:/images/zoom_in.svgz</iconset>
+   </property>
    <property name="text">
     <string>Zoom in</string>
    </property>
@@ -187,6 +236,10 @@
    </property>
   </action>
   <action name="actionZoomOut">
+   <property name="icon">
+    <iconset resource="res/resources.qrc">
+     <normaloff>:/images/zoom_out.svgz</normaloff>:/images/zoom_out.svgz</iconset>
+   </property>
    <property name="text">
     <string>Zoom out</string>
    </property>
@@ -195,16 +248,26 @@
    </property>
   </action>
   <action name="actionReset">
+   <property name="icon">
+    <iconset resource="res/resources.qrc">
+     <normaloff>:/images/zoom_original.svgz</normaloff>:/images/zoom_original.svgz</iconset>
+   </property>
    <property name="text">
     <string>Reset</string>
    </property>
   </action>
   <action name="actionExport">
+   <property name="icon">
+    <iconset resource="res/resources.qrc">
+     <normaloff>:/images/filesave.png</normaloff>:/images/filesave.png</iconset>
+   </property>
    <property name="text">
     <string>Export ...</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="res/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -1,15 +1,21 @@
 #include "stdpch.h"
 #include "mandelbrotrenderer.h"
 #include "complex.h"
+#include "region.h"
 
 MandelbrotRenderer::MandelbrotRenderer()
 {
 
 }
 
-QImage MandelbrotRenderer::render(const QSize& size, float xMin, float xMax, float yMin, float yMax, int limit)
+QImage MandelbrotRenderer::render(const QSize& size, const Region& region, float maxAbsValue, int maxIterations)
 {
-    qDebug() << "render: " << size << ", " << xMin << ", " << xMax << ", " << yMin << ", " << yMax << ", " << limit;
+    const float xMin = region.xMin();
+    const float yMin = region.yMin();
+    const float xMax = region.xMax();
+    const float yMax = region.yMax();
+
+    qDebug() << "render: " << size << ", " << region << ", " << maxAbsValue << ", " << maxIterations;
 
     QImage image(size, QImage::Format_RGB32);
 
@@ -27,8 +33,8 @@ QImage MandelbrotRenderer::render(const QSize& size, float xMin, float xMax, flo
                 (yMax - yMin) * static_cast<float>(j) / static_cast<float>(height) + yMin
             );
 
-            int value = converge(c, limit);
-            QRgb color = colorize(value, limit);
+            int iterations = converge(c, maxAbsValue, maxIterations);
+            QRgb color = colorize(iterations, maxIterations);
             image.setPixel(i, j, color);
         }
     }
@@ -36,30 +42,36 @@ QImage MandelbrotRenderer::render(const QSize& size, float xMin, float xMax, flo
     return image;
 }
 
-QRgb MandelbrotRenderer::colorize(int value, int limit)
+QRgb MandelbrotRenderer::colorize(int iterations, int maxIterations)
 {
-    if (value == limit) {
+    if (iterations >= maxIterations) {
         return qRgb(0, 0, 0);
     }
 
-    int grayScale = 255 * value / limit;
-    //qRgb(189, 149, 39);
+    int grayScale = static_cast<int>(255.0 * (static_cast<float>(maxIterations) - static_cast<float>(iterations)) / static_cast<float>(maxIterations));
+    int r = grayScale;
+    int g = grayScale;
+    int b = grayScale;
 
-    return qRgb(grayScale, grayScale, grayScale);
+    return qRgb(r, g, b);
 }
 
-int MandelbrotRenderer::converge(const Complex& c, int limit)
+int MandelbrotRenderer::converge(const Complex& c, float maxAbsValue, int maxIterations)
 {
     Complex z;
-    for(int i = 0; i < limit; i++)
+    for(int i = 0; i < maxIterations; i++)
     {
         z.square();
         z += c;
 
-        if (z.manhattan() > 1000000) {
+        //if (z.manhattan() > 1000000) {
+        //    return i;
+        //}
+
+        if (z.length() >= maxAbsValue) {
             return i;
         }
     }
 
-    return limit;
+    return maxIterations;
 }

@@ -1,6 +1,4 @@
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core gui widgets
 
 CONFIG += c++11
 
@@ -8,22 +6,34 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+INCLUDEPATH += src
+
 SOURCES += \
     complex.cpp \
     main.cpp \
     mainwindow.cpp \
     mandelbrotrenderer.cpp \
-    mandelbrotview.cpp
+    mandelbrotview.cpp \
+    region.cpp
 
 HEADERS += \
     complex.h \
     mainwindow.h \
     mandelbrotrenderer.h \
     mandelbrotview.h \
+    region.h \
     stdpch.h
 
 FORMS += \
     mainwindow.ui
+
+RESOURCES += \
+    res/resources.qrc
+
+DISTFILES += \
+    AUTHORS \
+    COPYING \
+    README
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

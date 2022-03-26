@@ -7,17 +7,18 @@
 class QSize;
 class QImage;
 class Complex;
+class Region;
 
 class MandelbrotRenderer
 {
 public:
     MandelbrotRenderer();
 
-    QImage render(const QSize& size, float xMin, float xMax, float yMin, float yMax, int limit);
+    QImage render(const QSize& size, const Region& region, float maxAbsValue, int maxIterations);
 
 private:
     QRgb colorize(int value, int limit);
-    int converge(const Complex& c, int limit);
+    int converge(const Complex& c, float maxAbsValue, int maxIterations);
 };
 
 #endif // MANDELBROTRENDERER_H
