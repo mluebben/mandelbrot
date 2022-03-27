@@ -1,16 +1,20 @@
-Mandelbrot set viewer
+# Mandelbrot set viewer
 
-Requirements:
+## Requirements:
+
+Qt Creator was used to develop the application and Qt is required for building and running the application.
 
 - Qt Creator
 - Qt
 
-Build:
+## Build:
 
-   qmake
-   make
+To build the application run the following two commands.
 
-References:
+    qmake
+    make
+
+## References:
 
 - https://de.wikipedia.org/wiki/Mandelbrot-Menge
 - https://www.informatik.uni-leipzig.de/~meiler/Schuelerseiten.dir/DPlotzki/html/mndlbrt.htm

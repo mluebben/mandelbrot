@@ -9,31 +9,31 @@ CONFIG += c++11
 INCLUDEPATH += src
 
 SOURCES += \
-    complex.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    mandelbrotrenderer.cpp \
-    mandelbrotview.cpp \
-    region.cpp
+    src/complex.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp \
+    src/mandelbrotrenderer.cpp \
+    src/mandelbrotview.cpp \
+    src/region.cpp
 
 HEADERS += \
-    complex.h \
-    mainwindow.h \
-    mandelbrotrenderer.h \
-    mandelbrotview.h \
-    region.h \
-    stdpch.h
+    src/complex.h \
+    src/mainwindow.h \
+    src/mandelbrotrenderer.h \
+    src/mandelbrotview.h \
+    src/region.h \
+    src/stdpch.h
 
 FORMS += \
-    mainwindow.ui
+    src/mainwindow.ui
 
 RESOURCES += \
     res/resources.qrc
 
 DISTFILES += \
-    AUTHORS \
-    COPYING \
-    README
+    AUTHORS.md \
+    COPYING.md \
+    README.md
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
